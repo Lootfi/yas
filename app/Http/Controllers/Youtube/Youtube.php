@@ -14,9 +14,9 @@ class Youtube
     public function get_channel($id)
     {
         $part = 'snippet';
-        $country = 'BD';
+        $country = 'US';
         $apiKey = config('youtube.api_key');
-        $maxResults = 12;
+        $maxResults = 10;
         $youTubeEndPoint = "https://www.googleapis.com/youtube/v3/search";
         $type = 'channel'; // You can select any one or all, we are getting only videos
 

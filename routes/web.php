@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.homepage');
-});
+Route::get('/', 'SearchController@index');
 
 Route::get('/results', 'SearchController@results')->name('results');
-Route::post('submit-search', 'SearchController@search')->name('submit-search');
+Route::post('search', 'SearchController@search')->name('submit-search');

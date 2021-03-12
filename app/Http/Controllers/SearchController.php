@@ -14,6 +14,11 @@ class SearchController extends Controller
         $this->youtube = new Youtube();
     }
 
+    public function index()
+    {
+        return view('home.homepage');
+    }
+
     public function search(Request $request)
     {
         $channelName = $request->get('channel-name');
@@ -23,14 +28,14 @@ class SearchController extends Controller
 
         $channels = $this->youtube->get_channel($channelName);
 
-        return view('results')->with('data', $channels->items);
+        return view('home.homepage')->with('data', $channels->items);
         // foreach ($channels->items as $channel) {
         //     dump($channel->snippet);
         // }
     }
 
-    public function results($data)
-    {
-        return view('results');
-    }
+    // public function results($data)
+    // {
+    //     return view('results');
+    // }
 }
