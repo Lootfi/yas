@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
-    public $youtube;
 
     public function __construct()
     {

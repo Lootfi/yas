@@ -56,7 +56,9 @@ MY HOMEPAGE
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h5 class="card-title">{{$c->snippet->title}}</h5>
+                    <a href="/channels/{{$c->snippet->channelId}}">
+                        <h5 class="card-title">{{$c->snippet->title}}</h5>
+                    </a>
                     <p class="card-text">{{$c->snippet->description}}</p>
                 </div>
             </div>
