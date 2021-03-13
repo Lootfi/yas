@@ -28,7 +28,7 @@ class Youtube
     }
 
 
-    public function get_videos($channel_id)
+    public function get_videos($channel_id, $nextPageToken = NULL)
     {
         $part = 'snippet';
         $country = 'US';
@@ -45,7 +45,9 @@ class Youtube
 
         $upload_id = $results->items[0]->contentDetails->relatedPlaylists->uploads;
 
-        $url2 = "https://www.googleapis.com/youtube/v3/playlistItems?playlistId=$upload_id&key=$apiKey&part=snippet";
+        $url2 = "https://www.googleapis.com/youtube/v3/playlistItems?playlistId=$upload_id&key=$apiKey&part=snippet&maxResults=9";
+
+        if ($nextPageToken) $url2 = $url2 . "&pageToken=$nextPageToken";
 
         $response = Http::get($url2);
         $results = json_decode($response);
